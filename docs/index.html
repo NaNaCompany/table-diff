@@ -1,0 +1,88 @@
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>표 두 개 대조 · NaNa Lab</title><link rel="stylesheet" href="style.css">
+<meta name="robots" content="index,follow">
+<meta name="description" content="키 열로 두 CSV·TSV 표를 대조해 추가·삭제·변경과 중복·빈 키를 확인하고 CSV로 저장하세요.">
+<link rel="canonical" href="https://nanalab.kr/table-diff/">
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/table-diff/">
+<link rel="alternate" hreflang="en" href="https://nanalab.kr/table-diff/en/">
+<link rel="alternate" hreflang="es" href="https://nanalab.kr/table-diff/es/">
+<link rel="alternate" hreflang="zh" href="https://nanalab.kr/table-diff/zh/">
+<link rel="alternate" hreflang="ja" href="https://nanalab.kr/table-diff/ja/">
+<link rel="alternate" hreflang="de" href="https://nanalab.kr/table-diff/de/">
+<link rel="alternate" hreflang="x-default" href="https://nanalab.kr/table-diff/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanalab.kr/table-diff/">
+<meta property="og:title" content="표 두 개 대조">
+<meta property="og:description" content="키 열로 두 CSV·TSV 표를 대조해 추가·삭제·변경과 중복·빈 키를 확인하고 CSV로 저장하세요.">
+<meta property="og:image" content="https://nanalab.kr/table-diff/og/ko.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="표 두 개 대조">
+<meta name="twitter:description" content="키 열로 두 CSV·TSV 표를 대조해 추가·삭제·변경과 중복·빈 키를 확인하고 CSV로 저장하세요.">
+<meta name="twitter:image" content="https://nanalab.kr/table-diff/og/ko.jpg">
+<link rel="stylesheet" href="public.css">
+
+<!-- NaNa publisher: AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<!-- /NaNa publisher: AdSense -->
+<!-- NaNa publisher: GTM -->
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<!-- /NaNa publisher: GTM -->
+<!-- NaNa publisher: Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<!-- /NaNa publisher: Analytics -->
+</head><body>
+<!-- NaNa publisher: GTM fallback -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<!-- /NaNa publisher: GTM fallback -->
+
+<header><a class="brand" href="./">T<span>↔</span>T</a><span class="local">● 브라우저 안에서만 처리</span></header>
+<main><section class="intro"><p class="eyebrow">TABLE DIFF / 01</p><h1>명단 사이의 차이,<br><em>빠짐없이 대조.</em></h1><p>기준표 A와 새 표 B를 넣고 키 열을 고르세요.<br>추가·누락·변경을 나누고 중복 키는 별도 예외로 남깁니다.</p></section>
+<section class="workspace" aria-label="표 입력"><div class="topline"><h2>01 <span>두 표 넣기</span></h2><button id="example" class="quiet">예시 다시 넣기</button></div><div class="inputs">
+<div><div class="labelrow"><label for="a">A · 기준표</label><select id="da" aria-label="A 구분자"><option value="auto">구분자 자동</option><option value="tab">탭 TSV</option><option value=",">쉼표 CSV</option><option value=";">세미콜론</option><option value="|">파이프</option></select></div><textarea id="a" spellcheck="false"></textarea><label class="file">UTF-8 파일 열기<input type="file" id="fa" accept=".csv,.tsv,.txt,text/plain,text/csv"></label></div>
+<div><div class="labelrow"><label for="b">B · 새 표</label><select id="db" aria-label="B 구분자"><option value="auto">구분자 자동</option><option value="tab">탭 TSV</option><option value=",">쉼표 CSV</option><option value=";">세미콜론</option><option value="|">파이프</option></select></div><textarea id="b" spellcheck="false"></textarea><label class="file">UTF-8 파일 열기<input type="file" id="fb" accept=".csv,.tsv,.txt,text/plain,text/csv"></label></div></div>
+<p class="hint">첫 행은 헤더. 두 표의 헤더 이름은 같아야 하며 열 순서는 달라도 됩니다. 표당 최대 2,000,000자 · 데이터 10,000행 · 200열 · 500,000셀.</p>
+<div class="actions"><button id="prepare" class="secondary">헤더 읽기</button><label for="key">키 열</label><select id="key"></select><label class="check"><input id="trim" type="checkbox">키 앞뒤 공백 무시</label><button id="compare" class="primary">표 대조하기 →</button></div><p id="message" role="status" aria-live="polite"></p></section>
+<section id="results" class="workspace" hidden><div class="topline"><h2>02 <span>대조 결과</span></h2><span id="meta" class="hint"></span></div><div class="stats" id="stats"></div><div class="actions"><button id="download" class="secondary">대조표 CSV</button><button id="exceptions" class="secondary">예외 CSV</button><label class="check"><input id="safe" type="checkbox" checked>수식 시작값 앞에 ' 추가</label></div><p class="hint">다운로드 보호는 원본 값을 바꿀 수 있습니다. 스프레드시트의 재저장·재열기까지 보장하지 않습니다. 숫자·날짜 자동 변환 없이 텍스트로 비교합니다.</p><h3>차이 상세 <span id="detailCount"></span></h3><div class="tablewrap"><table id="diffTable"></table></div><h3>예외: 빈 키·중복 키</h3><p class="hint">어느 한쪽에서 중복된 키는 양쪽 모두 대조에서 제외됩니다. 중복이 없는 반대쪽 행도 추가·누락으로 분류하지 않습니다.</p><div class="tablewrap"><table id="exceptionTable"></table></div></section>
+<details><summary>비교 규칙 · 형식 근거</summary><p>셀은 대소문자·공백·줄바꿈을 포함한 원문 문자열로 비교합니다. 선택 시 키의 앞뒤 공백만 무시합니다. 빈 행도 레코드로 검사합니다. 인용부호 안의 구분자와 줄바꿈, 두 번 쓴 인용부호를 보존합니다. 화면은 각 목록 최대 300행, CSV는 전체입니다.</p><p>CSV 인용 규칙: <a href="https://www.rfc-editor.org/rfc/rfc4180" target="_blank" rel="noreferrer">RFC 4180</a>. 내보내기 주의: <a href="https://owasp.org/www-community/attacks/CSV_Injection" target="_blank" rel="noreferrer">OWASP CSV Injection</a>. 자동 구분자는 첫 레코드의 빈도가 가장 높은 탭·쉼표·세미콜론·파이프를 사용합니다. 잘못 감지되면 직접 지정하세요.</p></details>
+</main><footer><span>입력은 서버로 전송하거나 저장하지 않습니다.</span><a href="https://nanalab.kr/apps/">More Apps ↗</a></footer><script type="module" src="app.js"></script>
+<!-- NaNa publisher: Cloudflare fallback -->
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+<!-- /NaNa publisher: Cloudflare fallback -->
+</body></html>

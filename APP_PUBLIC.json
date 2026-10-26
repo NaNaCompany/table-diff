@@ -1,0 +1,59 @@
+{
+  "slug": "table-diff",
+  "url": "https://nanalab.kr/table-diff/",
+  "languages": [
+    "ko",
+    "en",
+    "es",
+    "zh",
+    "ja",
+    "de"
+  ],
+  "locales": {
+    "ko": {
+      "name": "표 두 개 대조",
+      "description": "키 열로 두 CSV·TSV 표를 대조해 추가·삭제·변경과 중복·빈 키를 확인하고 CSV로 저장하세요.",
+      "image_alt": "표 두 개 대조"
+    },
+    "en": {
+      "name": "Table Diff",
+      "description": "Compare two CSV or TSV tables by a key column, review additions, removals, changes and key exceptions, and export CSV results.",
+      "image_alt": "Table Diff"
+    },
+    "es": {
+      "name": "Comparar tablas",
+      "description": "Compara dos tablas CSV o TSV por una columna clave, revisa altas, bajas, cambios y claves problemáticas, y exporta a CSV.",
+      "image_alt": "Comparar tablas"
+    },
+    "zh": {
+      "name": "双表对照",
+      "description": "按键列对比两个 CSV 或 TSV 表，查看新增、删除、修改及重复或空键，并导出 CSV。",
+      "image_alt": "双表对照"
+    },
+    "ja": {
+      "name": "2つの表を照合",
+      "description": "キー列で2つのCSV・TSV表を比較し、追加・削除・変更と重複・空のキーを確認してCSVに保存できます。",
+      "image_alt": "2つの表を照合"
+    },
+    "de": {
+      "name": "Tabellen vergleichen",
+      "description": "Vergleichen Sie zwei CSV- oder TSV-Tabellen anhand einer Schlüsselspalte und exportieren Sie Änderungen sowie doppelte oder leere Schlüssel als CSV.",
+      "image_alt": "Tabellen vergleichen"
+    },
+    "fr": {
+      "name": "Comparateur de tableaux",
+      "description": "Comparez deux tableaux CSV ou TSV par une colonne clé et exportez les ajouts, suppressions, modifications et clés problématiques en CSV.",
+      "image_alt": "Comparateur de tableaux"
+    },
+    "pt": {
+      "name": "Comparador de tabelas",
+      "description": "Compare duas tabelas CSV ou TSV por uma coluna-chave, confira inclusões, exclusões, alterações e chaves problemáticas e exporte em CSV.",
+      "image_alt": "Comparador de tabelas"
+    },
+    "ru": {
+      "name": "Сравнение таблиц",
+      "description": "Сравнивайте две таблицы CSV или TSV по ключевому столбцу и сохраняйте добавления, удаления, изменения и ошибки ключей в CSV.",
+      "image_alt": "Сравнение таблиц"
+    }
+  }
+}
